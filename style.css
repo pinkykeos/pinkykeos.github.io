@@ -1,0 +1,567 @@
+/*applicatable for all html items*/
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Koulen', cursive; /*can search on fonts.google.com step2*/
+}
+
+/*背景圖+BLUR(gradient)*/
+.header{
+  min-height: 100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(./assets/background.jpg); /*linear-gradient漸變色，url 加相*/
+  background-position: center;
+  background-size: cover; /*cover 會zoom in */
+  position: relative; /*相對定位*/
+}
+
+/* nav bar*/
+nav{ /*唔洗加. 因為係refer 緊<nav> tag */
+  display: flex; /*flex box 必須加呢行*/
+  padding: 2% 6%; /* 上邊 | 右邊 | 下邊 | 左邊 */
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav img{ /*(under nav tag的img tag，不用加點)*/
+  width: 100px;   
+}
+
+.nav-links{
+  flex: 1; /*will occupy all space*/
+  text-align: right; /*all text on right side */
+}
+
+.nav-links ul li{
+  list-style: none; /*none = no bullet*/
+  /*inline-block
+  將打直的bullet point變做打橫
+  依照元素中的內容來決定內容的寬高，不會佔滿容器橫向的剩餘空間
+  讓原本不能更改寬高的 <a> 標籤，不僅能依照文字內容自適應大小，也能依照網頁需求，透過 padding 屬性增加點擊範圍、自訂寬高。*/
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+  /*relative
+  make this containe
+  1. have a position relative to where it is now (e.g. top: 2px would push it down 2px from its normal layout position) 
+  2. allow absolutely-positioned children inside it to have their absolute positions relative to it instead of the window.
+  */
+}
+
+/*a for the anchor tag - link item*/
+.nav-links ul li a{
+  color: white;
+  text-decoration: none; /*d字唔會有underline/ bold etc*/
+  font-size: 13px;
+}
+
+/*nav link hover effect - adding underline effect*/
+/*after 係之後的effect - in this case the effect after hover*/
+.nav-links ul li::after{
+  content: '';
+  width: 0%; /*0% - the line will disappear, 100% - the line will appear*/
+  height: 2px;
+  background: #fa2e75;
+  display: block;
+  margin: auto;
+  transition: 0.5s; /*delay the effect*/
+}
+
+.nav-links ul li:hover::after{
+  width: 100%; 
+}
+
+.typewriter {
+    height: 80vh;
+    /*centering the content*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .typing {
+    width: 14ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+  }
+  
+  @keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+
+  .text-box{
+    width: 30%;
+    color: #fff;
+    /*position + top 50% + left 50% －將content放在中間*/
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*"visual formatting model" - 會根據display大細移位－MUST ADD to make it in the center of the div*/
+    text-align: center; /*置中d字*/
+}
+
+.text-box h1{
+    font-size: 62px;
+}
+
+.text-box p{
+    margin: 10px 0 40px;
+    font-size:14px;
+    color: #fff;
+}
+
+/*show underline when hover*/
+a:hover {
+    text-decoration: underline;
+}
+
+.row {
+  margin-top: 5%;
+  display: flex; /*change all (course-col) divs inside row div into cloumns*/
+  justify-content: space-between;
+}
+
+/* aboutme section*/
+.aboutMe{
+  width: 80%;
+  margin: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.aboutMe-col{
+  flex-basis: 100%;
+  border-radius: 10px;
+  margin-bottom: 0;
+  text-align: left;
+  background: #4d4d4f;
+  padding: 5px;
+  cursor: pointer; /*change cursor to a hand pointer*/
+  display: flex;
+  color: #fff;
+}
+
+.aboutMe-col h1{
+  color: #ea1d6f;
+}
+
+.aboutMe-col img{
+  height: 150px;
+  margin-left: 5px;
+  margin-right: 30px;
+  border-radius: 50%; /*change picture to circle*/
+}
+.aboutMe-col p{
+  padding: -100;
+
+}
+
+@media(max-width: 700px){
+  .aboutMe-col img{
+    height: 50px;
+    margin-left: 0px;
+    margin-right: 15px;
+  }
+}
+
+/* skills section*/
+
+.skills-col{
+  flex-basis: 100%;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 0;
+  text-align: left;
+  background: #4d4d4f;
+  cursor: pointer; /*change cursor to a hand pointer*/
+}
+.skills{
+  width: 80%;
+  margin: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.skillsItem{
+  color: #fff;
+  margin: auto;
+  text-align: left;
+}
+
+.percentage{
+  padding: 5;
+  margin-left: 5px;
+  margin-right: 20px;
+}
+/*--------hobbie section-----*/
+.hobbies{
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.hobbies-col{
+  flex-basis: 32%; /*for 3 columns*/
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hobbies-col img{
+  width: 100%;
+  height: 250px;
+  display: block; /*add this to make the picutre with a round block*/
+}
+
+.layer{
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media(max-width: 700px){
+  .row{
+      flex-direction: column;
+  }
+}
+
+/*hover時相加顏色*/
+.layer:hover{
+  background: rgba(240, 51, 114, 0.7); /*opacity = 0.7*/
+}
+/*change the position of the title 將字搬入相裡*/
+.layer h3{
+  width: 100%;
+  font-weight: 500;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  opacity: 0;
+  transition: 0.5s;
+}
+/*change the effect of title when hover*/
+.layer:hover h3{
+  bottom: 49%; /*when hover, the text will move from bottom to center*/
+  opacity: 1;
+}
+
+/* contact me section */
+
+.contactMe{
+  width: 80%;
+  margin: auto;
+  padding-top: 100px;
+  text-align: center;
+}
+
+/* icons */
+.icons .fa{
+  color: #f9428b;
+  margin: 0 13px;
+  cursor: pointer;
+  padding: 18px 0;
+}
+
+/* footer */
+.footer{
+  font-size: 10px;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: linear-gradient(to right, #737373 0%, #737373 100%);
+  font-size: 12px;
+}
+
+body, button, input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.background {
+  display: flex;
+  min-height: 100vh;
+}
+
+.screen {
+  position: relative;
+  background: #3e3e3e;
+  border-radius: 15px;
+}
+
+.screen:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+  z-index: -1;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: #4d4d4f;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+  margin-right: auto;
+}
+
+.screen-header-button {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  border-radius: 8px;
+  background: white;
+}
+
+.screen-header-button.close {
+  background: #ed1c6f;
+}
+
+.screen-header-button.maximize {
+  background: #e8e925;
+}
+
+.screen-header-button.minimize {
+  background: #74c54f;
+}
+
+.screen-header-right {
+  display: flex;
+}
+
+.screen-header-ellipsis {
+  width: 3px;
+  height: 3px;
+  margin-left: 2px;
+  border-radius: 8px;
+  background: #999;
+}
+
+.screen-body {
+  display: flex;
+}
+
+.screen-body-item {
+  flex: 1;
+  padding: 50px;
+}
+
+.screen-body-item.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+  color: #ea1d6f;
+  font-size: 26px;
+}
+
+.app-title:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 25px;
+  height: 4px;
+  background: #ea1d6f;
+}
+
+.app-contact {
+  text-align: left;
+  margin-top: auto;
+  font-size: 12px;
+  color: #888;
+}
+
+.app-form-group {
+  margin-bottom: 15px;
+}
+
+.app-form-group.message {
+  margin-top: 40px;
+}
+
+.app-form-group.buttons {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.app-form-control {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ddd;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+  color: #666;
+}
+
+.app-form-control:focus {
+  border-bottom-color: #ddd;
+}
+
+.app-form-button {
+  background: none;
+  border: none;
+  color: #ea1d6f;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.app-form-button:hover {
+  color: #b9134f;
+}
+
+.credits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.credits-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dribbble {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) {
+  .screen-body {
+    flex-direction: column;
+  }
+
+  .screen-body-item.left {
+    margin-bottom: 30px;
+  }
+
+  .app-title {
+    flex-direction: row;
+  }
+
+  .app-title span {
+    margin-right: 12px;
+  }
+
+  .app-title:after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .screen-body {
+    padding: 40px;
+  }
+
+  .screen-body-item {
+    padding: 0;
+  }
+}
+
+
+/*hide menu icon in all display*/
+nav .fa{
+  display: none;
+}
+
+/*fit all content in smaller display*/
+@media(max-width: 700px){
+  .text-box h1{
+      font-size: 20px;
+  }
+  .nav-links ul li{
+      display: block;
+  }
+  /*電話開menu時，會變左打開一行野*/
+  .nav-links{
+      position: absolute;
+      background: #edac44;
+      height: 100vh; /*vh = view height 螢幕可視範圍高度的百分比.會隨著你的網頁縮放而改變*/
+      width: 100px;
+      top: 0;
+      right: 0;
+      text-align: left;
+      z-index: 2; /*move element to front or back, 愈大就愈前面*/
+      transition: 1s; /* show & hide mobile menu 時間*/
+  }
+  /*show the menu icon*/
+  nav .fa{
+      display: block; /*to make it visiable*/
+      color: #fff;
+      margin: 10px;
+      font-size: 22px;
+      cursor: pointer;
+  }
+  /*make space between each nav item*/
+  .nav-links ul{
+      padding: 30px;
+
+  }
+}
+
+.image1{
+  
+}
